@@ -1,0 +1,35 @@
+name: Update submodules
+
+on:
+  schedule:
+    # 每周一 UTC 02:00(北京时间周一 10:00)
+    - cron: '0 2 * * 1'
+  workflow_dispatch:  # 也允许在 Actions 页面手动触发
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Pull each submodule to its tracked branch HEAD
+        run: git submodule update --remote --merge
+
+      - name: Commit and push if anything moved
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add -A
+            # 把动了哪个 submodule 写进 commit body,方便 review
+            git commit -m "chore: bump submodules" -m "$(git submodule status)"
+            git push
+          else
+            echo "No submodule changes."
+          fi

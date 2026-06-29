@@ -1,0 +1,24 @@
+[submodule "specs/agents.md/source"]
+	path = specs/agents.md/source
+	url = https://github.com/agentsmd/agents.md.git
+	branch = main
+[submodule "specs/skill.md/source"]
+	path = specs/skill.md/source
+	url = https://github.com/agentskills/agentskills.git
+	branch = main
+[submodule "community/affaan-m.ECC/source"]
+	path = community/affaan-m.ECC/source
+	url = https://github.com/affaan-m/ECC.git
+	branch = main
+[submodule "community/hoangnb24.repository-harness/source"]
+	path = community/hoangnb24.repository-harness/source
+	url = https://github.com/hoangnb24/repository-harness.git
+	branch = main
+[submodule "anthropic/anthropic.autonomous-coding/source"]
+	path = anthropic/anthropic.autonomous-coding/source
+	url = https://github.com/anthropics/claude-quickstarts.git
+	branch = main
+[submodule "aws/awslabs.aidlc-workflows/source"]
+	path = aws/awslabs.aidlc-workflows/source
+	url = https://github.com/awslabs/aidlc-workflows.git
+	branch = main
