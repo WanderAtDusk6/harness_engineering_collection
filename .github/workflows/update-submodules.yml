@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 0
 
       - name: Pull each submodule to its tracked branch HEAD
-        run: git submodule update --remote --merge
+        run: git submodule update --remote --checkout
 
       - name: Commit and push if anything moved
         run: |

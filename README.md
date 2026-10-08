@@ -32,6 +32,8 @@
 | **Anthropic · autonomous-coding** ([source](https://github.com/anthropics/claude-quickstarts/tree/main/autonomous-coding) · [demo](anthropic/anthropic.autonomous-coding/demo/)) | Python + Claude Agent SDK,[博客](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) + [quickstart](https://github.com/anthropics/claude-quickstarts/tree/main/autonomous-coding) | `autonomous_agent_demo.py` + `agent.py` / `client.py` / `security.py` / `progress.py` + `prompts/{app_spec.txt,initializer_prompt.md,coding_prompt.md}` | Python 入口脚本                                                          | 运行时文件(`feature_list.json` / `claude-progress.txt` / `init.sh`) | `pip install -r requirements.txt` |
 | **OpenAI · harness engineering** ([source](https://openai.com/zh-Hans-CN/index/harness-engineering/) · [demo](openai/openai.harness-engineering/demo/))                          | 无公开 repo,[博客](https://openai.com/zh-Hans-CN/index/harness-engineering/) + 示例布局                                                                                                                          | `AGENTS.md` + `ARCHITECTURE.md` + `docs/{design-docs,exec-plans,product-specs,references,generated}/`                                                   | `AGENTS.md`                                                              | 文件                                                                | 手动                              |
 | **AWS Labs · AI-DLC Workflows** ([source](https://github.com/awslabs/aidlc-workflows) · [demo](aws/awslabs.aidlc-workflows/demo/))                                               | Markdown 规则包 + release zip,[博客](https://aws.amazon.com/blogs/devops/ai-driven-development-life-cycle/)                                                                                                      | `aidlc-rules/{aws-aidlc-rules,aws-aidlc-rule-details}/`(三阶段:inception/construction/operations + extensions)                                          | 各家 agent 的 dotfile(Kiro / Q Developer / Cursor / Cline / Claude Code) | 文件                                                                | 解压 release zip + 按 agent 配置  |
+| **OpenAI · Codex** ([source](openai/openai.codex/source/README.md) · [repo](https://github.com/openai/codex)) | 开源 agent harness | 见上游仓库 | 见官方文档 | 见官方文档 | 来源索引 |
+| **Anthropic · context engineering** ([source](anthropic/anthropic.context-engineering/source/README.md)) | 官方工程文章与产品文档 | 文档条目 | — | 上下文与记忆的官方说明 | 来源索引 |
 
 ### 社区项目
 
@@ -39,6 +41,7 @@
 | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | -------- | --------------------------------------- |
 | **hoangnb24/repository-harness** ([source](https://github.com/hoangnb24/repository-harness) · [demo](community/hoangnb24.repository-harness/demo/)) | Rust CLI + 安装脚本                                                         | `AGENTS.md` + `docs/`(16 文档 + 7 ADR + 模板)+ `scripts/schema/*.sql` + CLI 二进制                                                             | `AGENTS.md`                          | SQLite   | `irm \| iex` / `curl \| bash`           |
 | **affaan-m/ECC** ([source](https://github.com/affaan-m/ECC) · [demo](community/affaan-m.ECC/demo/))                                                 | TypeScript + Shell + npm 包(`ecc-universal`、`ecc-agentshield`)+ GitHub App | 13+ 个 dotfile 目录(`.claude/`、`.cursor/`、`.codex/`、`.gemini/`、`.zed/` 等)共享 `agents/` `commands/` `hooks/` `contexts/` `skills/` 内容池 | 各家 agent 的 dotfile(如 `.claude/`) | 文件     | `npx ecc-universal` / GitHub App / 手动 |
+| **Letta · letta-code** ([source](community/letta-ai.letta-code/source/README.md) · [repo](https://github.com/letta-ai/letta-code)) | 开源 agent harness | 见上游仓库 | 见官方文档 | 持续 agent 与记忆，范围见来源说明 | 来源索引 |
 
 ## 常用命令
 
@@ -50,7 +53,7 @@ git clone --recurse-submodules <repo-url>
 git submodule update --init --recursive
 
 # 更新所有 submodule 到上游 HEAD
-git submodule update --remote --merge
+git submodule update --remote --checkout
 ```
 
 Submodule 自动更新由 [`.github/workflows/update-submodules.yml`](.github/workflows/update-submodules.yml) 每周一执行。
