@@ -53,7 +53,7 @@ git clone --recurse-submodules <repo-url>
 git submodule update --init --recursive
 
 # 更新所有 submodule 到上游 HEAD
-git submodule update --remote --merge
+git submodule update --remote --checkout
 ```
 
 Submodule 自动更新由 [`.github/workflows/update-submodules.yml`](.github/workflows/update-submodules.yml) 每周一执行。
